@@ -4,16 +4,19 @@
 			var vm = this;
 			vm.users = [];
 			vm.detailedUser;
+			
 			vm.showDetails = function(user){
 				vm.detailedUser = user;
 				vm.detailed = true;
 			}
+			
 			vm.getUsers = function(){
 				$http.get('/api/users').then(function(response){
 					vm.users = response.data;
 				});
 			}
 			vm.getUsers();
+			
 			vm.updateUser = function(user){
 				if(user){
 					$http.put('/api/users', user).then(function(response){
@@ -22,6 +25,7 @@
 					})
 				}
 			}
+			
 			vm.removeUser = function(user){
 				console.log(user);
 				if(user){
@@ -30,6 +34,7 @@
 					});
 				}
 			}
+			
 			vm.addUser = function(user){
 				if(user && user.name && user.age){
 					console.log('about to create user');
@@ -45,6 +50,7 @@
 			}
 			return true;
 		});
+		
 		app.config(function($routeProvider) {
 			$routeProvider.when('/', {
 				controller: 'HomeController',
