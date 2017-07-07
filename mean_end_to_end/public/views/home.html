@@ -1,0 +1,79 @@
+<div class="container">
+	<!-- <h1 class="details">{{vm.title}}</h1> -->
+	<div class="row">
+		<div class="col-md-6">
+			<h3>{{vm.minTime}} Min:{{vm.secTime}} Secs</h3>
+		</div>
+		<div class="col-md-6">
+			<button class="btn btn-info btn-md" ng-click="vm.Logout()">
+		      <span class="glyphicon glyphicon-off"></span> Logout 
+		    </button>
+		</div>    
+	</div>
+	<div class="container users-container">
+		<table class="table table-bordered table-striped table-hovered table-condensed" ng-hide="vm.detailed">
+			<caption>#User Details</caption>
+			<th>Email</th>
+			<th>Password</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Actions</th>
+			<tr ng-repeat="user in vm.users">
+				<td style="cursor: pointer;" ng-if="!editing" ng-click="vm.showDetails(user)">{{user.username}}</td>
+				<td style="cursor: pointer;" ng-if="!editing" ng-click="vm.showDetails(user)">{{user.password}}</td>
+				<td style="cursor: pointer;" ng-if="!editing" ng-click="vm.showDetails(user)">{{user.name}}</td>
+				<td style="cursor: pointer;" ng-if="!editing" ng-click="vm.showDetails(user)">{{user.age}}</td>
+				<td ng-if="editing">
+					<input type="text" ng-model="user.username" class="form-control" style="width:250px;">
+				</td>
+				<td ng-if="editing">
+					<input type="text" ng-model="user.password" class="form-control" style="width:150px;">
+				</td>
+				<td ng-if="editing">
+					<input type="text" ng-model="user.name" class="form-control" style="width:200px;">
+				</td>
+				<td ng-if="editing">
+					<input type="text" ng-model="user.age" class="form-control" style="width:100px;">
+
+				</td>
+				<td>
+					<button ng-hide="editing" class="btn btn-warning" ng-click="editing=!editing">Edit</button>
+					<button ng-hide="!editing" class="btn btn-success" ng-click="vm.updateUser(user);editing=false;">Save</button>
+					<button class="btn btn-primary" ng-hide="!editing"  ng-click="editing=!editing">Back</button>
+					<button class="btn btn-danger" ng-hide="editing" ng-click="vm.removeUser(user);">Delete</button>
+				</td>
+			</tr>
+		</table>
+		<button class="btn btn-primary btn-md" ng-hide="vm.detailed === true ||vm.adduser == true;" ng-click="vm.adduser=!vm.adduser">Add A User</button>
+	</div>
+	<div class="container create-users" ng-hide="!vm.adduser">
+		<div class="form-group">
+			<label for="username">Email</label>
+			<input required type="email" id="username" class="form-control" style="width:300px;" ng-model="vm.user.username" required> 
+		</div>
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input required type="password" id="password" class="form-control" style="width:300px;" ng-model="vm.user.password"> 
+		</div>
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input required type="text" id="name" class="form-control" style="width:300px;" ng-model="vm.user.name"> 
+		</div>
+		<div class="form-group">
+			<label for="age">Age</label>
+			<input required type="number" id="age" class="form-control" style="width:300px;" ng-model="vm.user.age">
+		</div>
+		<button class="btn btn-success" ng-click="vm.addUser(vm.user)" ng-disabled="!vm.user.username || !vm.user.password || !vm.user.name || !vm.user.age">Add</button>
+		<button class="btn btn-primary" ng-click="vm.adduser = false;" >Back</button>
+	</div>
+	<div class="container details-container" ng-if="vm.detailed === true">
+		<div class="jumbotron">
+			<div class="close" style="font-size: 50px; color: black" ng-click="vm.detailed=false;">x</div>
+			<h4>You are viewing the details of User #{{vm.detailedUser._id}}</h4>
+			<h4>userName: {{vm.detailedUser.username}}</h4>
+			<h4>Name: {{vm.detailedUser.name}}</h4>
+			<h4>Age: {{vm.detailedUser.age}}</h4>
+		</div>
+	</div>
+
+</div>

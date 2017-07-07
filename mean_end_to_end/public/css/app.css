@@ -1,0 +1,68 @@
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  text-align: center;
+}
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+.Absolute-Center.is-Responsive {
+  width: 70%; 
+  height: 310px;
+  min-width: 200px;
+  max-width: 650px;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px
+}
+#loginForm .btn-success{
+	width: 255px;
+}
+.btn-twitter {
+    width: 195px;
+}
+button.btn.btn-gplus {
+    background-color: #cc2900;
+    color: #f2f2f2;
+}
+.fa:hover,.btn:hover {
+    opacity: 0.7;
+}
+
+img {
+  width:100px;
+  height:100px;
+}
+/*a {
+  color: white;
+  text-decoration: none;
+  pointer-events: none;
+}*/
+a:hover {
+  /*color: white;*/
+  text-decoration: none;
+}
+
+.btn-info  {
+  float: right;
+  margin: 10px;
+}
+caption {
+  text-align: center;
+  color: blue;
+  font-size: 20px;
+}
+h4 {
+  color: red;
+  padding: 10px;
+}
+
+.newuser {
+  border: aliceblue;
+  background-color: white;
+  color:#337ab7;
+}

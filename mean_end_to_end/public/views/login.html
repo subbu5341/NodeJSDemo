@@ -1,0 +1,62 @@
+<div class="jumbotron vertical-center" ng-controller="HomeController">
+    <div class="login-container">
+		<div class="row">
+		    <div class="Absolute-Center is-Responsive">
+			    <div class="col-md-6">
+			        <form action="login" id="loginForm">
+				          <div class="form-group input-group">
+				            <b>Login Into Your Account</b>
+				          </div>
+				          <div class="form-group input-group">
+				            <input class="form-control" type="text" name='username' ng-model="vm.user.username" placeholder="xxxxx@gmail.com"/>
+				            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>          
+				          </div>
+				          <div class="form-group input-group">
+				            <input class="form-control" type="password" name='password' ng-model="vm.user.password" placeholder="password"/> 
+				             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				          </div>
+				          <div class="form-group">
+				            <button type="button" class="btn btn-def btn-success" ng-click="vm.loginCheck(vm.user)">Sign in</button>
+				            <!-- <button type="button" class="btn btn-def btn-success"><a href="#details"> Sign in </a></button> -->
+				          </div>
+				          <div class="form-group text-center">
+				          	<div class="row">
+				          		<div class="col-md-6">
+				          			<input type="checkbox">Remember me
+				          		</div>
+				          		<div class="col-md-6">
+				          			<a href="#details">ForgotPassword?</a>
+				          		</div>
+				            </div>
+				          </div>  
+			        </form>        
+			    </div>
+			    <div class="col-md-1">
+				    <hr width="1" size="200px">
+					<p>or</p>
+					<hr width="1" size="200px">
+			    </div>
+			    <div class="col-md-5">
+			        <form action="socialNet" id="socialNetForm">
+			        	<div class="form-group">
+			        		<button class="newuser" ng-click="vm.register()">New User?SignUp!</button>
+			            	<!-- <a href="#register"><span>Don't have an account?SignUp!</span></a> -->
+			          	</div>
+			          	<div class="form-group input-group">
+				          	<button type="button" class="btn btn-block btn-social btn-facebook" ng-click="vm.fbLogin()"><i class="fa fa-facebook" aria-hidden="true"></i></i> Sign In with Facebook</button>
+			            </div>
+			          <div class="form-group input-group">
+			            <button type="button" class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter left"></i> Sign In with Twitter</button> 
+			          </div>
+			          <div class="form-group input-group">
+			           	<button type="button" class="btn btn-block btn-social btn-gplus" ng-click="vm.handleSignInClick()"><i class="fa fa-google-plus left"></i> Sign In with Google +</button>
+			          </div>
+			        </form>        
+			    </div> 
+			</div>    
+		</div>
+	</div>
+	<!-- <h6>{{me.gmail.username}}</h6>
+	<h6>{{me.gmail.email}}</h6> -->
+	<!-- <img ng-src="{{g_image}}"></img> -->
+</div>

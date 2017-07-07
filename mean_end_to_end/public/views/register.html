@@ -1,0 +1,32 @@
+<div class="container create-users">
+	<div>
+		<h3>Registration Page</h3>
+	</div>
+	<div>
+		<form name="registerForm" novalidate>	
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input required type="email" name="email" class="form-control" style="width:300px;" ng-model="vm.user.username" placeholder="xxxxx@gmail.com" pattern="[a-z.]*[@]\bgmail.com" required> 
+				<span style="color:Red" ng-show="registerForm.email.$dirty && registerForm.email.$error.pattern">Please Enter Valid Email</span>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" name="password" class="form-control" style="width:300px;" ng-model="vm.user.password" ng-pattern="/^[0-9,a-z,@]{1,10}$/" required> 
+				<span style="color:Red" ng-show="registerForm.password.$dirty && registerForm.password.$error.pattern">Only Numbers Letters and @ Allowed, Maximum 10 Characters</span>
+			</div>
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input required type="text" name="name" class="form-control" style="width:300px;" ng-model="vm.user.name"> 
+				<span style="color:Red" ng-show="registerForm.name.$dirty && registerForm.name.$invalid">Please Enter username</span>
+			</div>
+			<div class="form-group">
+				<label for="age">Age</label>
+				<input required type="number" name="age" min="1" max="65" class="form-control" style="width:300px;" ng-model="vm.user.age">
+				<span style="color:Red" ng-show="registerForm.age.$dirty && registerForm.age.$invalid">Please Enter Age b/w 1 to 65</span>
+			</div>
+			<button class="btn btn-success" ng-click="vm.addUser(vm.user)" ng-disabled="registerForm.$invalid">Add</button>
+			<!-- <button class="btn btn-primary" ng-click="vm.adduser = false;" >Back</button> -->
+			<a href="#/login" class="btn btn-primary btn-md">Home</a>
+		</form>	
+	</div>
+</div>	
