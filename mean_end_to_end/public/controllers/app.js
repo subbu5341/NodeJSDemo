@@ -112,7 +112,8 @@
 		    * @desc:session timeOut functions
 		    */
 		    			
-			function sessionLogIn() {	
+			function sessionLogIn() {
+
 				timer = $timeout(function sessionTime() {
 			        vm.secTime = secCounter++ ;	
 			        console.log(vm.secTime);	        
@@ -123,12 +124,13 @@
 			        }
 
 			         timer = $timeout(sessionTime, 1000);
-			        if(vm.minTime >= 1){	
+			        if(vm.minTime == 1){	
 			        	$timeout.cancel(timer);		        	
 			        	document.location.hash ="/login";						
 						toastr.info('Please Login again', 'sessionTimedOut', { closeButton: true });
 			        }
 		    	}, 1000);
+		    	//$scope.$apply();
 		   	}
 			
 			vm.Logout = function() {

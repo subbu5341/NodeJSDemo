@@ -64,7 +64,7 @@ router.post('/api/login', function(request, response){
 		}
 		
 		if(!user) {
-			response.status(404).send(err)
+			response.status(401).send(err)
 		} 
 		
 		

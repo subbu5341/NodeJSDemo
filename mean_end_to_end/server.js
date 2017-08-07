@@ -10,6 +10,9 @@ var session = require('express-session');
 
 var app = express();
 
+
+// Unnecessary things
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -27,6 +30,8 @@ app.get('/user',function(request, response){
 		.send(request.cookies.name);
 })
 
+//Unnecessary things
+
 // Connect to mongoDatabase
 var db = "mongodb://localhost/mean_end_to_end";
 mongoose.connect(db, function(err, response){
@@ -38,8 +43,9 @@ mongoose.connect(db, function(err, response){
 	}
 });
 
-app.use('/', router);
+//app.use('/', router);
 app.use(morgan('dev'));
+
 app.use(express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 3000
